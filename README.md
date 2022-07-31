@@ -1,5 +1,20 @@
-Входной точкой в приложение является файл app.js. Чтобы запустить приложение в режиме разработки, нужно ввести в терминал npm run start:dev, а для продакшена нужно использовать npm run start. В конфигурационном файле .env хранятся системные переменные приложения. В папке routes находятся все роутеры приложения, отвечающие за навигацию. В папке PostgreSQL находятся файлы, отвечающие за настройку бд и подключение к ней. В папке controllers находятся все контроллеры, отвечающие за логику приложения: метод getAllProducts() вызывает все поля и их значения из таблицы в бд;
-метод getProductById() вызывает один объект из таблицы по указанному айди(METHOD: GET http://host:port/api/products/:id); метод addNewProduct() создает новый объект со значениями указанными в body; метод deleteProduct() находит объект по указанному айди(см. метод getProductById) и удаляет его из таблцицы; метод updateProduct() редактирует объект по указанному айди; метод uploadPhoto() загружает на сервер фото, используя multipart/form-data.
-
-ВАЖНО:
-При использовании метода updateProduct(), в body нужно указывать именно newName, newPrice и newAmount, а не просто name, price и amount.
+<h1>VVDEV-JSON-REST-API</h1><br>
+<h2>Описание основных директорий и файлов приложения</h2>
+<ul>
+  <li>app.js - входная точка в приложение</li>
+  <li>/routes/main.router.js - главный роутер</li>
+  <li>/router/product.router.js - роутер, отвечающий за все запросы к postgreSQL</li>
+  <li>/postgreSQL/settings.js - настройка подключения к базе данных postgreSQL</li>
+  <li>/postgreSQL/models/model.js - модель таблицы Products</li>
+  <li>/photos - директория с загруженными с сервера фотографиями</li>
+  <li>/contoller/product.controller.js - контроллер, в котором прописаны основные методы</li>
+</ul><br>
+<h2>Описание основных методов</h2>
+<ul>
+  <li>.getAllProducts(req, res) => возвращает все товары из таблицы Products</li>
+  <li>.getProductById(req, res) => возвращает один товар из таблицы Products по его id</li>
+  <li>.addNewProduct(req, res) => добавляет новый товар в таблицу Products</li>
+  <li>.deleteProduct(req, res) => удаляет товар из таблицы Products по его id</li>
+  <li>.updateProduct(req, res) => редактирует сведения о товаре в таблице Products</li>
+  <li>.uploadPhoto(req, res) => загружает фото товара на сервер</li>
+</ul>
